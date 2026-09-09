@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Baummethoden Frontend — Auto MPG Prediction UI
 
-## Getting Started
+A Next.js (TypeScript) frontend that collects a car's specs and sends them to a prediction API to estimate fuel efficiency, built on top of a decision-tree model trained on the classic **Auto MPG dataset**.
 
-First, run the development server:
+## Screenshot
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+![Prediction form with sample input](/screenshot.png)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## What it does
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+The form collects the five features the model was trained on:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.tsx`.
+- **zylinder** — number of cylinders
+- **ps** — horsepower
+- **gewicht** — weight
+- **beschleunigung** — acceleration
+- **baujahr** — model year
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+On submit, the values are sent to a prediction API (configured via the `NEXT_PUBLIC_PREDICTION_API` environment variable) that serves the trained model and returns a predicted miles-per-gallon value.
 
-## Learn More
+## Status
 
-To learn more about Next.js, take a look at the following resources:
+The original backend prediction API was a temporary endpoint set up for a training course and is no longer active, so the live demo currently won't return a prediction result. The frontend itself is fully functional — see the screenshot above for the form working with sample input.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Related project
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+This frontend was built to serve predictions from a decision-tree/random-forest model trained on the Auto MPG dataset (companion model-training project).
 
-## Deploy on Vercel
+## Tech stack
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check  out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
-Deploy this project: [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2FOFranke%2Fbaummethoden-frontend&env=NEXT_PUBLIC_PREDICTION_API)
+`Next.js` · `TypeScript` · `React`
